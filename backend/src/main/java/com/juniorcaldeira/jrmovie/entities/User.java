@@ -18,7 +18,7 @@ public class User {
 	public User() {
 	}
 
-	public User(Long id, String emial, String email) {
+	public User(Long id, String email) {
 		this.id = id;
 		this.email = email;
 	}
@@ -35,7 +35,7 @@ public class User {
 		return email;
 	}
 
-	public void setEmial(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 	}

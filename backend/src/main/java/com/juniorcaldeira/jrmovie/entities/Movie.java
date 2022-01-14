@@ -1,9 +1,12 @@
 package com.juniorcaldeira.jrmovie.entities;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,10 +21,13 @@ public class Movie {
 	private Integer count;
 	private String image;
 	
+	@OneToMany(mappedBy = "id.movie")
+	private Set<Score> scores = new HashSet<>();
+	
 	public Movie() {
 	}
 
-	public Movie(Long id, String title, Double socre, Integer count, String image, Double score) {
+	public Movie(Long id, String title, Double score, Integer count, String image) {
 		this.id = id;
 		this.title = title;
 		this.score = score;
@@ -49,8 +55,8 @@ public class Movie {
 		return score;
 	}
 
-	public void setScore(Double socre) {
-		this.score = socre;
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
 	public Integer getCount() {
@@ -68,6 +74,12 @@ public class Movie {
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	public Set<Score> getScores() {
+		return scores;
+	}
+	
+	
 	
 	
 
